@@ -61,10 +61,6 @@ Copyright (C) 2006 Potix Corporation. All Rights Reserved.
        
                     <button label="Agregar" width="100%" onClick="@command('addMoneda')" autodisable="self"/>
                     <separator spacing="40px"  bar="true"/>
-                    <hlayout>
-                        <button label="Saldo" />
-                        <button label="Cantidad Monedas" />
-                    </hlayout>
                 </div>
             </center>   
         </borderlayout>
