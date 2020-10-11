@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+index.zul
+
+{{IS_NOTE
+	Purpose:
+		
+	Description:
+		
+	History:
+		Mon Jun 12 21:23:35     2006, Created by tomyeh
+		Fri May 01 04:36:35     2009, Modified by stera
+}}IS_NOTE
+
+Copyright (C) 2006 Potix Corporation. All Rights Reserved.
+
+{{IS_RIGHT
+}}IS_RIGHT
+-->
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window width="420px" position="center" apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('mialcancia.viewMondel.AlcanciaViewModel')">
+        <caption label="Mi Alcancía" image="/img/alcancia.png" />
+        <borderlayout height="360px">
+            <north border="none">
+                <menubar id="menubar" width="100%">
+                    <menu label="Menú" >
+                        <menupopup>
+                            <menuitem label="Cantidad de monedas" onClick="@command('cantidadMonedas')"  />
+                            <menuitem label="Cantidad de dinero" onClick="@command('cantidadDinero')"  />
+                            <menuitem label="Monedas por denominación" onClick="@command('resumenDenominacion')"/>
+                        </menupopup>
+                    </menu>
+                </menubar>
+            </north>
+            <center border="none">
+                <div id="contentDiv">
+                    <hbox pack="center" align="top" width="100%" >
+                        <separator spacing="40px" />
+                        <hbox pack="center" width="340px" spacing="2.3em">
+                            <vlayout>
+                                <separator spacing="20px" />
+                                <label value="Denominación" />
+                                <combobox id="cmb_denomincaion" width="150px"
+                                          model="@load(vm.monedas)" selectedItem="@bind(vm.denominacion)">
+                                    <template name="model">
+                                        <comboitem label="@load(each)"/>
+                                    </template>
+                                </combobox>
+                                <separator spacing="10px" />
+                                <label value="Cantidad"/>
+                                <intbox id="cant_monedas" width="150px"/>
+                            </vlayout>
+                
+                            <hbox pack="center" align="center"  width="168px" height="210px" >
+                                <image src="@load(vm.imgMoneda)" width="138px" height="138px"/>
+                            </hbox>
+                        </hbox>
+                    </hbox>
+       
+                    <button label="Agregar" width="100%" onClick="@command('addMoneda')" autodisable="self"/>
+                    <separator spacing="40px"  bar="true"/>
+                    <hlayout>
+                        <button label="Saldo" />
+                        <button label="Cantidad Monedas" />
+                    </hlayout>
+                </div>
+            </center>   
+        </borderlayout>
+        
+    </window>
+</zk>

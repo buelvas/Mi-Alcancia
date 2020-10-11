@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window title="Resumen de monedas por denominación" border="normal" width="460px"
+            apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('mialcancia.viewMondel.ResumenDenominacionViewModel')"
+            position="center,center" closable="true"
+            action="show: slideDown;hide: slideUp">
+        <vlayout>
+            <grid model="@load(vm.monedas)" emptyMessage="No hay monedas en la alcancía">
+                <auxhead>
+                    <auxheader colspan="3">
+                        <image src="/img/funnel.png" />
+                        <combobox id="filtro" width="150px" onChange="@command('filtrar',denominacion=self.value)"
+                                  model="@load(vm.monedas_cbx)" >
+                            <template name="model">
+                                <comboitem label="@load(each)"/>
+                            </template>
+                        </combobox>
+                        <button image="/img/edit-clear.png" onClick="@command('filtrar',denominacion='-1')"/>
+                    </auxheader>
+                </auxhead>
+                <columns>
+                    <column hflex="2" label="Denominación" />
+                    <column hflex="1" label="Monedas" align="center" />
+                    <column hflex="1" label="Dinero" align="center" />
+                </columns>
+                <template name="model">
+                    <row>
+                        <label value="@load(each.denominacion)@converter('formatedNumber', format='###,##0')" />
+                        <label value="@load(each.cantidad)@converter('formatedNumber', format='###,##0')" />
+                        <label value="@load(each.saldo)@converter('formatedNumber', format='###,##0')" />
+                    </row>
+                </template>
+            </grid>
+        </vlayout>
+    </window>
+</zk>
