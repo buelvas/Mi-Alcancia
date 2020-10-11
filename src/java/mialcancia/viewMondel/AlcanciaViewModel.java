@@ -73,7 +73,7 @@ public class AlcanciaViewModel {
      */
     @Command
     public void cantidadMonedas() {
-        Messagebox.show(String.format("Cantidad de monedas en la alcancia: %s",
+        Messagebox.show(String.format("Cantidad de monedas en la alcancía: %s",
                 NumberFormat.getNumberInstance().format(alcancia.getCantidadMonedas())),
                 null, Messagebox.OK, Messagebox.INFORMATION);
     }
@@ -83,7 +83,7 @@ public class AlcanciaViewModel {
      */
     @Command
     public void cantidadDinero() {
-        Messagebox.show(String.format("Cantidad de dinero en la alcancia: $%s",
+        Messagebox.show(String.format("Cantidad de dinero en la alcancía: $%s",
                 NumberFormat.getNumberInstance().format(alcancia.getSaldo())),
                 null, Messagebox.OK, Messagebox.INFORMATION);
     }
