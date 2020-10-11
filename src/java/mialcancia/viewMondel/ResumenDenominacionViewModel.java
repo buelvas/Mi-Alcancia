@@ -29,7 +29,7 @@ import org.zkoss.zul.Combobox;
  */
 public class ResumenDenominacionViewModel {
 
-    private final AlcanciaController alcancia = new AlcanciaController();
+    private final AlcanciaController alcancia = AlcanciaController.getInstance();
     private List<Moneda> monedas;
     private NumberFormat nf = NumberFormat.getNumberInstance();
     @Wire

@@ -34,7 +34,7 @@ public class AlcanciaViewModel {
     private final static String srcImgMoneda = "/img/moneda_%s.fw.png";
     //Moneda seleccionada en combobox
     private Moneda denominacion;
-    private final AlcanciaController alcancia = new AlcanciaController();
+    private final AlcanciaController alcancia = AlcanciaController.getInstance();
 
     @Wire
     Intbox cant_monedas;

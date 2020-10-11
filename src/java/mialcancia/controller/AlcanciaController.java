@@ -5,6 +5,7 @@
  */
 package mialcancia.controller;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -17,8 +18,18 @@ import mialcancia.model.Moneda;
  */
 public class AlcanciaController { 
 
-    private static final List<Moneda> monedas = new ArrayList<>();
+    private final List<Moneda> monedas = new ArrayList<>();
+    
+    private static final AlcanciaController ALCANCIA_CONTROLLER = new AlcanciaController();
+    
+    private AlcanciaController(){
 
+    }
+    
+    public static AlcanciaController getInstance(){
+        return ALCANCIA_CONTROLLER;
+    }
+    
   
     public void addMoneda(Moneda m) {
         monedas.add(m);
